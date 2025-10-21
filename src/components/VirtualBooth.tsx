@@ -21,6 +21,7 @@ import Overground from "./items/Overground";
 import Laptop from "./items/Laptop";
 import DeskItem from "./items/DeskItem";
 import Character from "./items/Character";
+import type { Texture } from "three";
 
 // small loader component (shows loading percent)
 function Loader() {
@@ -43,7 +44,7 @@ function Loader() {
 }
 
 function BoothRoom() {
-  const logoTexture = useTexture(logo);
+  const logoTexture = useTexture(logo) as Texture;
   return (
     <group>
       {/* Lamp (ceiling light) */}

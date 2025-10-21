@@ -1,8 +1,9 @@
 import { useGLTF } from "@react-three/drei";
 import anime from "../../assets/item/cute_girl_character.glb";
+import type { GLTFResult } from "../../types/glb";
 
 export default function Character({ position }: { position: number[] }) {
-  const { scene } = useGLTF(anime); // change path accordingly
+  const { scene } = useGLTF(anime) as GLTFResult; // change path accordingly
   return (
     <primitive
       object={scene}

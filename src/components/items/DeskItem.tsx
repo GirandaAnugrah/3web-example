@@ -1,9 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 import desk from "../../assets/item/desk.glb";
+import type { GLTFResult } from "../../types/glb";
 
 export default function DeskItem({ position }: { position: number[] }) {
   // Load your GLB file (make sure it's in the /public folder)
-  const { scene } = useGLTF(desk); // change path accordingly
+  const { scene } = useGLTF(desk) as GLTFResult; // change path accordingly
 
   return (
     <primitive

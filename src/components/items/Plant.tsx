@@ -1,9 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 import plant from "../../assets/item/plant.glb";
+import type { GLTFResult } from "../../types/glb";
 
 export default function Plant({ position }: { position: number[] }) {
   // Load your GLB file (make sure it's in the /public folder)
-  const { scene } = useGLTF(plant); // change path accordingly
+  const { scene } = useGLTF(plant) as GLTFResult; // change path accordingly
 
   // Model menghadap ke kanan karena rotasi Y = Math.PI / 2 (90 derajat)
   // Untuk menghadap ke depan, gunakan rotasi Y = 0

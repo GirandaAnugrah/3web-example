@@ -2,6 +2,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useSpring } from "@react-spring/three";
 import { useState } from "react";
+import type { OrbitControls } from "three/examples/jsm/Addons.js";
 
 // === Your Smooth Zoom Component ===
 function SmoothZoomToTarget({
@@ -14,6 +15,7 @@ function SmoothZoomToTarget({
   onClick?: () => void;
 }) {
   const { camera, controls } = useThree();
+  const orbit = controls as unknown as OrbitControls;
   const [active, setActive] = useState(false);
 
   const { position } = useSpring({
@@ -28,11 +30,11 @@ function SmoothZoomToTarget({
       0.1
     );
     // Smoothly move controls target
-    controls?.target.lerp(
+    orbit?.target.lerp(
       { x: targetPosition[0], y: targetPosition[1], z: targetPosition[2] },
       0.1
     );
-    controls?.update();
+    orbit?.update();
   });
 
   return (
